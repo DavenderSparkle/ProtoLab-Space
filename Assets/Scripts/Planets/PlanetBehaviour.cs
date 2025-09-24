@@ -15,7 +15,7 @@ public class PlanetBehaviour : MonoBehaviour
     void Update()
     {
         planetRb.velocity = new Vector2(-3f, 0f);
-        if(planetRb.position.x < -10f) 
+        if(planetRb.position.x < -23f) 
         {
             PlanetCreator.objCreated--;
             Destroy(gameObject);

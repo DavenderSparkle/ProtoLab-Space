@@ -30,7 +30,7 @@ public class PlanetCreator : MonoBehaviour
         int rand = Random.Range(0, ArrayPrefabs.Length);
         if (objCreated < maxObjects)
         {
-            newPrefab = (GameObject)Instantiate(ArrayPrefabs[rand], new Vector2(newPrefab.transform.position.x + 5f, Random.Range(-5, 5)/* + transform.position.y*/), Quaternion.identity);
+            newPrefab = (GameObject)Instantiate(ArrayPrefabs[rand], new Vector2(newPrefab.transform.position.x + 10f, Random.Range(-5, 5)/* + transform.position.y*/), Quaternion.identity);
             rb = newPrefab.gameObject.GetComponent<Rigidbody2D>();
             objCreated++;
 
