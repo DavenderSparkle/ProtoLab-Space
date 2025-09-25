@@ -41,7 +41,7 @@ public class PlanetCreator : MonoBehaviour
     void FirstGeneration()
     {
         int rand = Random.Range(0, ArrayPrefabs.Length);
-        newPrefab = (GameObject)Instantiate(ArrayPrefabs[rand], new Vector2(0f, Random.Range(-5, 5)/* + transform.position.y*/), Quaternion.identity);
+        newPrefab = (GameObject)Instantiate(ArrayPrefabs[rand], new Vector2(transform.position.x, Random.Range(-5, 5)/* + transform.position.y*/), Quaternion.identity);
         newPrefab.transform.SetParent(transform);
         rb = newPrefab.gameObject.GetComponent<Rigidbody2D>();
     }
