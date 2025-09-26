@@ -9,9 +9,12 @@ public class CollectibleMovement : MonoBehaviour
     float randomLimit;
     float randomSpeed;
 
+    PlanetBehaviour plaBeh;
+
     // Start is called before the first frame update
     void Start()
     {
+        plaBeh = GetComponent<PlanetBehaviour>();
         collectibleRB = GetComponent<Rigidbody2D>();
         randomLimit = Random.Range(2, 6.5f);
         randomSpeed = Random.Range(1, 5);
@@ -21,8 +24,11 @@ public class CollectibleMovement : MonoBehaviour
     void Update()
     {
         pos = Mathf.Sin(Time.time * randomSpeed)* randomLimit;
-        collectibleRB.velocity = new Vector2(-5, 0);
-        transform.position = new Vector2(transform.position.x, pos);
+        if(plaBeh == null || !plaBeh.isOrbiter)
+        {
+            collectibleRB.velocity = new Vector2(-5, 0);
+            transform.position = new Vector2(transform.position.x, pos);
+        }
 
         if (transform.position.x < -23) Destroy(gameObject);
     }

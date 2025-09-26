@@ -44,6 +44,7 @@ public class PlanetBehaviour : MonoBehaviour
 
         orbitorPlanet = Instantiate(whoOrbits[0], new Vector2(transform.position.x, distance), Quaternion.identity);
 
-        isOrbiter =true;
+        PlanetBehaviour orbitorScript = orbitorPlanet.GetComponent<PlanetBehaviour>();
+        orbitorScript.isOrbiter =true;
     }
 }

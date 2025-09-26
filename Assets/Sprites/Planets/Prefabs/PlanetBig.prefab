@@ -181,3 +181,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whoOrbits:
   - {fileID: 9200134968084307972, guid: 5b942718553f92043a15113fc539d7f3, type: 3}
+  - {fileID: 8716321901523034794, guid: 3509389618d01c2499ac6e42b96f124a, type: 3}
+  isOrbiter: 0
