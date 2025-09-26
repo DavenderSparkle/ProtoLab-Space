@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     //Death by Planet
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        if(collision.CompareTag("Planet"))
+            Destroy(this.gameObject);
     }
 }

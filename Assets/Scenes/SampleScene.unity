@@ -343,6 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243847812}
   - component: {fileID: 1243847811}
+  - component: {fileID: 1243847813}
   m_Layer: 0
   m_Name: PlanetCreator
   m_TagString: Untagged
@@ -381,6 +382,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243847813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243847810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5f7563a458aad4b8d4eb4043ef3d4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 8309907519096075441, guid: bdfa3612d913202448bf80001e5c9237, type: 3}
 --- !u!1 &1468533846
 GameObject:
   m_ObjectHideFlags: 0
