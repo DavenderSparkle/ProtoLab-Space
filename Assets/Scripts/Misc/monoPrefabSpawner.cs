@@ -12,20 +12,18 @@ public class monoPrefabSpawner : MonoBehaviour
     {
         StartCoroutine(SpawnRoutine());
     }
-    void Update()
-    {
-    }
 
     IEnumerator SpawnRoutine()
     {
-        //Decide if is an oxygen bubble or star (Stars often appears orbiting planets)
-        randomPref = Random.Range(0, prefabs.Length);
-
         while (true)
         {
             yield return new WaitForSeconds(10f);
-            if (Random.Range(0f,1f) < 0.2f)
+            if (Random.Range(0f,1f) < 0.3f)
+            {
+                //Decide if is an oxygen bubble or star (Stars often appears orbiting planets)
+                randomPref = Random.Range(0, prefabs.Length);
                 Instantiate(prefabs[randomPref], transform.position, Quaternion.identity);
+            }
         }
 
     }
