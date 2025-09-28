@@ -1,4 +1,4 @@
-# Cosmitide
+# Cosmotide
 Arcade-survival game that you control with a single button and test how long you can last among the stars.  
 Your goal is to survive as long as possible while dodging planets of diferent sizes that appear randomly and manage oxygen supply
 
