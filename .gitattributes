@@ -1,2 +1,5 @@
 # Ignore TextMeshPro files on lang statics
-*.shader linguist-vendored=false
+*.shader linguist-vendored=true
+*.compute linguist-vendored=true
+*.cginc linguist-vendored=true
+*.hlsl linguist-vendored=true
