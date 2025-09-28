@@ -20,7 +20,7 @@ public class OxygenBarReducer : MonoBehaviour
     void Update()
     {
         oxygenLevel.value = oxygenLv;
-        boost = Input.GetKey(KeyCode.Space) ? 2 : 1; //if you use propulsor it burns oxygen
+        boost = Input.GetKey(KeyCode.Space) ? 3 : 1; //if you use propulsor it burns oxygen
         oxygenLv -= 0.01f * Time.deltaTime * boost;
     }
 

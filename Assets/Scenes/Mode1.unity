@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8309907519096075441, guid: bdfa3612d913202448bf80001e5c9237, type: 3}
+  - {fileID: 8309907519096075441, guid: bdfa3612d913202448bf80001e5c9237, type: 3}
   - {fileID: 8716321901523034794, guid: 3509389618d01c2499ac6e42b96f124a, type: 3}
 --- !u!1 &1284582671
 GameObject:

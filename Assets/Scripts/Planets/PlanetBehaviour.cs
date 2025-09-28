@@ -24,7 +24,7 @@ public class PlanetBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        planetRb.velocity = new Vector2(-3f, 0f);
+        planetRb.velocity = new Vector2(-4f, 0f);
         if(planetRb.position.x < -23f) 
         {
             if(!isOrbiter) PlanetCreator.objCreated--; //This safeguards that when destroyed, two planets are not created

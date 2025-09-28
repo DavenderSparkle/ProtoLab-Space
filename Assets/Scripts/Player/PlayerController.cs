@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource starPick;
     [SerializeField] AudioSource oxygenPick;
     [SerializeField] AudioSource rocket;
+    private bool hasPlayed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,12 @@ public class PlayerController : MonoBehaviour
         traveled = 1 * (int)Time.time;
         //Death By Suffocation
         if(oxBrRed.OxygenLv <= 0)
-        { 
+        {
+            if(!crash.isPlaying && !hasPlayed)
+            {
+                crash.Play();
+                hasPlayed = true;
+            }
             StartCoroutine(WaitSeconds()); 
         }
 
@@ -52,7 +58,7 @@ public class PlayerController : MonoBehaviour
                 rocket.Play();
             }
             sr.sprite = s[0];
-            vel = vel > 4 ? vel : vel += 0.2f * Time.deltaTime *10;
+            vel = vel > 8 ? vel : vel += 0.3f * Time.deltaTime *10;
             player.velocity = new Vector2(0f, vel);
 
         }
@@ -60,7 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             rocket.Stop();
             sr.sprite = s[1];
-            player.velocity = playervel < -3f ? player.velocity = new Vector2 (0,-3f): player.velocity; 
+            player.velocity = playervel < -5f ? player.velocity = new Vector2 (0,-5f): player.velocity; 
             vel = 0;
         }
 

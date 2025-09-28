@@ -17,8 +17,8 @@ public class monoPrefabSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(10f);
-            if (Random.Range(0f,1f) < 0.3f)
+            yield return new WaitForSeconds(5f);
+            if (Random.Range(0f,1f) < 0.4f)
             {
                 //Decide if is an oxygen bubble or star (Stars often appears orbiting planets)
                 randomPref = Random.Range(0, prefabs.Length);

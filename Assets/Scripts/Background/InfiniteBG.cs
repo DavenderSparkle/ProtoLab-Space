@@ -6,7 +6,7 @@ public class InfiniteBG : MonoBehaviour
 {
     Material bg;
 
-    float scroll = 1f;
+    float scroll = 2f;
     float offset;
 
     // Start is called before the first frame update
