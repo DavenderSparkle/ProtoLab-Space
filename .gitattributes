@@ -1,0 +1,2 @@
+# Ignore TextMeshPro files on lang statics
+Assets/TextMesh Pro/* linguist-vendored
