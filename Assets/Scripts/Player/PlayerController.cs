@@ -7,20 +7,22 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D player;
 
-    [SerializeField] AudioSource crash;
-    [SerializeField] AudioSource starPick;
     //Sprite Change Behaviour (could use animator, but since only 2 images, keep it simple)
     SpriteRenderer sr;
     public Sprite[] s;
 
     public float vel;
     public float playervel;
-
     int traveled;
 
     [SerializeField] OxygenBarReducer oxBrRed;
     CollectibleBehaviour colBeh;
     [SerializeField]CollectedStarCounter colStrCount;
+
+    [SerializeField] AudioSource crash;
+    [SerializeField] AudioSource starPick;
+    [SerializeField] AudioSource oxygenPick;
+    [SerializeField] AudioSource rocket;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +42,15 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(WaitSeconds()); 
         }
 
-        playervel = player.velocity.y; //Debug falling velocity
+        playervel = player.velocity.y;
+
+        //Where all game gimmic occurs
         if (Input.GetKey(KeyCode.Space))
         {
+            if (!rocket.isPlaying)
+            {
+                rocket.Play();
+            }
             sr.sprite = s[0];
             vel = vel > 4 ? vel : vel += 0.2f * Time.deltaTime *10;
             player.velocity = new Vector2(0f, vel);
@@ -50,6 +58,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            rocket.Stop();
             sr.sprite = s[1];
             player.velocity = playervel < -3f ? player.velocity = new Vector2 (0,-3f): player.velocity; 
             vel = 0;
@@ -79,6 +88,7 @@ public class PlayerController : MonoBehaviour
         //Recover Oxygen
         if (collision.CompareTag("Oxygen"))
         {
+            oxygenPick.Play();
             oxBrRed.OxygenLv = colBeh.Increment;
         }
 
