@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public float vel;
     public float playervel;
+    float travelParse;
     int traveled;
 
     [SerializeField] OxygenBarReducer oxBrRed;
@@ -31,12 +32,15 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         player = GetComponent<Rigidbody2D>();
         player.gravityScale = 0.5f;
+        traveled = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        traveled = 1 * (int)Time.time;
+        travelParse += Time.deltaTime;
+        traveled = (int)travelParse;
+        Debug.Log(traveled);
         //Death By Suffocation
         if(oxBrRed.OxygenLv <= 0)
         {
