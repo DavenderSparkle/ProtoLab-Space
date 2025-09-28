@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 8743464641490424566}
   - component: {fileID: 5979440572500880103}
   - component: {fileID: 7987530768828463589}
-  - component: {fileID: 1664635201630885619}
   - component: {fileID: -4473273577175750431}
+  - component: {fileID: 1664635201630885619}
+  - component: {fileID: 1561177048659904855}
   m_Layer: 0
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,18 +151,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1664635201630885619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8716321901523034794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe94ffbbfa743a428e514e4aeb7a26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4473273577175750431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +165,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whoOrbits: []
   isOrbiter: 0
+--- !u!114 &1664635201630885619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716321901523034794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe94ffbbfa743a428e514e4aeb7a26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1561177048659904855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716321901523034794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad98738adfd85fc46baba3d80060bce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increment: 1

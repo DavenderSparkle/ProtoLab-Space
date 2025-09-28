@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3764725354283310067}
   - component: {fileID: 865916164283159332}
-  - component: {fileID: 2508217098576708736}
   - component: {fileID: 5963342309990412723}
   - component: {fileID: 631514988408496085}
+  - component: {fileID: 2508217098576708736}
+  - component: {fileID: 3846589592291499734}
   m_Layer: 0
   m_Name: Oxygen
-  m_TagString: Untagged
+  m_TagString: Oxygen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2508217098576708736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8309907519096075441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe94ffbbfa743a428e514e4aeb7a26e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &5963342309990412723
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +150,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &2508217098576708736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309907519096075441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe94ffbbfa743a428e514e4aeb7a26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3846589592291499734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309907519096075441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad98738adfd85fc46baba3d80060bce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increment: 0.1

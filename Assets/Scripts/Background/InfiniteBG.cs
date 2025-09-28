@@ -16,7 +16,7 @@ public class InfiniteBG : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         offset += (Time.deltaTime * scroll) / 10;
         bg.SetTextureOffset("_MainTex", new Vector2(offset, 0));

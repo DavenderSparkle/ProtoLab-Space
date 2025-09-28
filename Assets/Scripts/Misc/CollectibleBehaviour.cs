@@ -4,20 +4,8 @@ using UnityEngine;
 
 public class CollectibleBehaviour : MonoBehaviour
 {
-
-    public float increment;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("How many does it give | Ex: Oxygen: 0.1 / Stars: always 1 (collectible)")]
+    [SerializeField] private float increment;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,5 +14,10 @@ public class CollectibleBehaviour : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public float Increment
+    {
+        get { return increment; }
     }
 }

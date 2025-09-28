@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public float vel;
     public float playervel;
 
+    [SerializeField] OxygenBarReducer oxBrRed;
+    CollectibleBehaviour colBeh;
+    [SerializeField]CollectedStarCounter colStrCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(oxBrRed.OxygenLv <= 0) { Destroy(gameObject); }
+
         playervel = player.velocity.y; //Debug falling velocity
         if (Input.GetKey(KeyCode.Space))
         {
@@ -40,10 +46,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //Death by Planet
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Planet"))
+        colBeh = collision.gameObject.GetComponent<CollectibleBehaviour>();
+        //Death by Planet
+        if (collision.CompareTag("Planet"))
             Destroy(this.gameObject);
+
+        //Recover Oxygen
+        if (collision.CompareTag("Oxygen"))
+            oxBrRed.OxygenLv = colBeh.Increment;
+
+        if (collision.CompareTag("Star"))
+            colStrCount.Recollected = colBeh.Increment;
+
     }
 }

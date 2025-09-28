@@ -18,11 +18,11 @@ public class PlanetBehaviour : MonoBehaviour
         probOrbit = Random.Range(0f, 1f);
 
         planetRb = GetComponent<Rigidbody2D>();
-        if (whoOrbits.Length > 0 && probOrbit > 0.3f) Orbit();
+        if (whoOrbits.Length > 0 && probOrbit > 0.5f) Orbit();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         planetRb.velocity = new Vector2(-3f, 0f);
         if(planetRb.position.x < -23f) 
@@ -42,7 +42,7 @@ public class PlanetBehaviour : MonoBehaviour
             dirRNG = Random.Range(-0.2f, 0.2f);
         } while (dirRNG == 0);
 
-        orbitorPlanet = Instantiate(whoOrbits[0], new Vector2(transform.position.x, distance), Quaternion.identity);
+        orbitorPlanet = Instantiate(whoOrbits[Random.Range(0,whoOrbits.Length)], new Vector2(transform.position.x, distance), Quaternion.identity);
 
         PlanetBehaviour orbitorScript = orbitorPlanet.GetComponent<PlanetBehaviour>();
         orbitorScript.isOrbiter =true;
