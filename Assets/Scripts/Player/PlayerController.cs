@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D player;
 
+    [SerializeField] AudioSource crash;
+    [SerializeField] AudioSource starPick;
     //Sprite Change Behaviour (could use animator, but since only 2 images, keep it simple)
     SpriteRenderer sr;
     public Sprite[] s;
@@ -28,7 +31,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(oxBrRed.OxygenLv <= 0) { Destroy(gameObject); }
+        //Death By Suffocation
+        if(oxBrRed.OxygenLv <= 0)
+        { 
+            StartCoroutine(WaitSeconds()); 
+        }
 
         playervel = player.velocity.y; //Debug falling velocity
         if (Input.GetKey(KeyCode.Space))
@@ -51,14 +58,30 @@ public class PlayerController : MonoBehaviour
         colBeh = collision.gameObject.GetComponent<CollectibleBehaviour>();
         //Death by Planet
         if (collision.CompareTag("Planet"))
-            Destroy(this.gameObject);
+        {
+            crash.Play();
+            StartCoroutine(WaitSeconds());
+        }
 
         //Recover Oxygen
         if (collision.CompareTag("Oxygen"))
+        {
             oxBrRed.OxygenLv = colBeh.Increment;
+        }
 
         if (collision.CompareTag("Star"))
+        {
+            starPick.Play();
             colStrCount.Recollected = colBeh.Increment;
+        }
 
+    }
+
+
+    IEnumerator WaitSeconds()
+    {
+        sr.enabled = false;
+        yield return new WaitForSeconds(0.9f);
+        SceneManager.LoadScene(0);
     }
 }

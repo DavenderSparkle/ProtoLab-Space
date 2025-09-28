@@ -39,7 +39,7 @@ public class PlanetBehaviour : MonoBehaviour
         float distance = transform.position.y + 6f;
         do 
         {
-            dirRNG = Random.Range(-0.2f, 0.2f);
+            dirRNG = Random.Range(-0.4f, 0.4f);
         } while (dirRNG == 0);
 
         orbitorPlanet = Instantiate(whoOrbits[Random.Range(0,whoOrbits.Length)], new Vector2(transform.position.x, distance), Quaternion.identity);
