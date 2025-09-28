@@ -24,4 +24,15 @@ public class CollectedStarCounter : MonoBehaviour
         get { return recollected; }
         set { recollected += value; }
     }
+
+    public void SaveRecord()
+    {
+        float current = PlayerPrefs.GetFloat("StarsRecord", 0);
+
+        if(recollected > current)
+        {
+            PlayerPrefs.SetFloat("StarsRecord", recollected);
+            PlayerPrefs.Save();
+        }
+    }
 }

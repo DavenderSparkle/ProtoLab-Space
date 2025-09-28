@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float vel;
     public float playervel;
 
+    int traveled;
+
     [SerializeField] OxygenBarReducer oxBrRed;
     CollectibleBehaviour colBeh;
     [SerializeField]CollectedStarCounter colStrCount;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        traveled = 1 * (int)Time.time;
         //Death By Suffocation
         if(oxBrRed.OxygenLv <= 0)
         { 
@@ -50,6 +53,16 @@ public class PlayerController : MonoBehaviour
             sr.sprite = s[1];
             player.velocity = playervel < -3f ? player.velocity = new Vector2 (0,-3f): player.velocity; 
             vel = 0;
+        }
+
+        //Tp going out of screen
+        if (transform.position.y >= 10.5)
+        {
+            transform.position = new Vector2(transform.position.x, -10.4f);
+        }
+        else if (transform.position.y <= -10.5)
+        {
+            transform.position = new Vector2(transform.position.x, 10.4f);
         }
     }
 
@@ -80,8 +93,23 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitSeconds()
     {
+        colStrCount.SaveRecord();
+        SaveTravel();
         sr.enabled = false;
         yield return new WaitForSeconds(0.9f);
         SceneManager.LoadScene(0);
+    }
+
+
+
+    public void SaveTravel()
+    {
+        float current = PlayerPrefs.GetFloat("TravelRecord", 0);
+
+        if (traveled > current)
+        {
+            PlayerPrefs.SetFloat("TravelRecord", traveled);
+            PlayerPrefs.Save();
+        }
     }
 }
